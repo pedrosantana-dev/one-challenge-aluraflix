@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "../Button";
+import { useEffect, useState } from "react";
 
 const HeaderEstilizado = styled.header`
 	border-bottom: 4px solid var(--color-blue);
@@ -13,6 +14,11 @@ const HeaderEstilizado = styled.header`
 	background-color: var(--color-dark-grey);
 
 	box-shadow: 0px 0px 29px 5px var(--color-blue);
+
+	&.scrolled {
+		background-color: #000;
+		opacity: 0.9;
+	}
 `;
 
 const HeaderContainer = styled.div`
@@ -35,8 +41,24 @@ const HeaderContainer = styled.div`
 `;
 
 export default function Header() {
+	const [isScrolled, setIsScrolled] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 10) {
+				setIsScrolled(true);
+			} else {
+				setIsScrolled(false);
+			}
+		};
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
 	return (
-		<HeaderEstilizado>
+		<HeaderEstilizado className={isScrolled ? "scrolled" : ""}>
 			<HeaderContainer>
 				<img
 					src="./LogoMain.png"

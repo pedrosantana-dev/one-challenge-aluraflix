@@ -1,0 +1,47 @@
+[
+	{
+		"id": 1,
+		"src": "img/cards/1.png",
+		"categoriaId": 1
+	},
+	{
+		"id": 2,
+		"src": "img/cards/2.png",
+		"categoriaId": 1
+	},
+	{
+		"id": 3,
+		"src": "img/cards/3.png",
+		"categoriaId": 1
+	},
+	{
+		"id": 4,
+		"src": "img/cards/4.png",
+		"categoriaId": 2
+	},
+	{
+		"id": 5,
+		"src": "img/cards/5.png",
+		"categoriaId": 2
+	},
+	{
+		"id": 6,
+		"src": "img/cards/6.png",
+		"categoriaId": 2
+	},
+	{
+		"id": 7,
+		"src": "img/cards/7.png",
+		"categoriaId": 3
+	},
+	{
+		"id": 8,
+		"src": "img/cards/8.png",
+		"categoriaId": 3
+	},
+	{
+		"id": 9,
+		"src": "img/cards/9.png",
+		"categoriaId": 3
+	}
+]

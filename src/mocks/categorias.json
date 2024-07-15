@@ -1,0 +1,17 @@
+[
+	{
+		"id": 1,
+		"nome": "Front End",
+		"cor": "#6BD1FF"
+	},
+	{
+		"id": 2,
+		"nome": "Back End",
+		"cor": "#00C86F"
+	},
+	{
+		"id": 3,
+		"nome": "Mobile",
+		"cor": "#FFBA05"
+	}
+]

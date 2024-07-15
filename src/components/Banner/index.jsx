@@ -23,10 +23,12 @@ const ConteudoEstilizado = styled.div`
 	position: relative;
 	display: flex;
 	justify-content: space-between;
+	align-items: start;
 	flex-wrap: nowrap;
 	gap: 50px;
 
 	& > div {
+		flex: 1;
 		a {
 			font-size: 48px;
 			font-weight: 700;
@@ -47,9 +49,11 @@ const ConteudoEstilizado = styled.div`
 			font-size: 18px;
 		}
 	}
+`;
 
+const ContainerImgEstilizado = styled.div`
 	img {
-		max-width: 646px;
+		width: 100%;
 	}
 `;
 
@@ -71,10 +75,12 @@ export default function Banner() {
 					</p>
 				</div>
 
-				<img
-					src="./img/player.png"
-					alt="Pokemon"
-				/>
+				<ContainerImgEstilizado>
+					<img
+						src="./img/player.png"
+						alt="Pokemon"
+					/>
+				</ContainerImgEstilizado>
 			</ConteudoEstilizado>
 		</BannerEstilizado>
 	);
