@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import Banner from "../components/Banner";
 import Categoria from "../components/Categoria";
 import categorias from "@/mocks/categorias.json";
 import ModalEditar from "@/components/ModalEditar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ContainerCategoriasEstilizado = styled.div`
 	display: flex;
@@ -16,18 +15,7 @@ const ContainerCategoriasEstilizado = styled.div`
 `;
 
 export default function Home() {
-	const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 	const [cardEmEdicao, setCardEmEdicao] = useState(null);
-
-	useEffect(() => {
-		const handleResize = () => {
-			setIsLargeScreen(window.innerWidth >= 1024);
-		};
-		window.addEventListener("resize", handleResize);
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
-	}, []);
 
 	const aoFechar = () => {
 		setCardEmEdicao(null);
@@ -35,7 +23,6 @@ export default function Home() {
 
 	return (
 		<>
-			{isLargeScreen && <Banner />}
 			<ContainerCategoriasEstilizado>
 				{categorias.map((item) => (
 					<Categoria

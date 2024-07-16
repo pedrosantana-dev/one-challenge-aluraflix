@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const BannerEstilizado = styled.div`
 	position: relative;
-	padding: 343px 40px 155px 40px;
+
 	background-image: url("./img/player.png");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -27,6 +27,10 @@ const ConteudoEstilizado = styled.div`
 	align-items: start;
 	flex-wrap: nowrap;
 	gap: 50px;
+
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 343px 40px 155px 40px;
 
 	& > div {
 		display: flex;
@@ -57,8 +61,20 @@ const ConteudoEstilizado = styled.div`
 `;
 
 const ContainerImgEstilizado = styled.div`
+	position: relative;
+	border: 4px solid #6bd1ff;
+	border-radius: 8px;
 	img {
 		width: 100%;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		box-shadow: inset 0 0 20px 5px #6bd1ff;
 	}
 `;
 
