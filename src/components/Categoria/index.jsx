@@ -68,7 +68,10 @@ export default function Categoria({ nome, cor, id, aoEditarCard }) {
 	const videosDaCategoria = videos.filter((item) => item.categoriaId === id);
 	return (
 		<div>
-			<TituloEstilizado $cor={cor}>
+			<TituloEstilizado
+				$cor={cor}
+				id={id}
+			>
 				<span>{nome}</span>
 			</TituloEstilizado>
 			<ContainerEstilizado>

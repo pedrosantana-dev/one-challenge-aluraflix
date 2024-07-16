@@ -84,7 +84,7 @@ export default function Banner() {
 			<BackroundEstilizado />
 			<ConteudoEstilizado>
 				<div>
-					<a href="#">FRONT END</a>
+					<a href="#1">FRONT END</a>
 					<h3>SEO com React</h3>
 					<p>
 						Eu to aqui pra nesse vídeo dizer que a gente vai aprender a começar
