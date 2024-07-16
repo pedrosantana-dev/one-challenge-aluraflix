@@ -2,47 +2,64 @@
 	{
 		"id": 1,
 		"titulo": "SEO com React",
-		"src": "img/cards/1.png",
+		"imagem": "img/cards/1.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 1
 	},
 	{
 		"id": 2,
-		"src": "img/cards/2.png",
+		"titulo": "Desenvolvimento Web com React",
+		"imagem": "img/cards/2.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 1
 	},
 	{
 		"id": 3,
-		"src": "img/cards/3.png",
+		"titulo": "SEO com React",
+		"imagem": "img/cards/3.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 1
 	},
 	{
 		"id": 4,
-		"src": "img/cards/4.png",
+		"titulo": "Desenvolvimento Web com React",
+		"imagem": "img/cards/4.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 2
 	},
 	{
 		"id": 5,
-		"src": "img/cards/5.png",
+		"titulo": "Desenvolvimento Web com React",
+		"imagem": "img/cards/5.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 2
 	},
 	{
 		"id": 6,
-		"src": "img/cards/6.png",
+		"titulo": "Desenvolvimento Web com React",
+		"imagem": "img/cards/6.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 2
 	},
 	{
 		"id": 7,
-		"src": "img/cards/7.png",
+		"titulo": "Desenvolvimento Web com React",
+		"imagem": "img/cards/7.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 3
 	},
 	{
 		"id": 8,
-		"src": "img/cards/8.png",
+		"titulo": "Desenvolvimento Web com React",
+		"imagem": "img/cards/8.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 3
 	},
 	{
 		"id": 9,
-		"src": "img/cards/9.png",
+		"titulo": "Desenvolvimento Web com React",
+		"imagem": "img/cards/9.png",
+		"video": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 		"categoriaId": 3
 	}
 ]

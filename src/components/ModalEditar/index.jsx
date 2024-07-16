@@ -5,6 +5,8 @@ import xCancel from "@/assets/icons/cancel.png";
 import ListaSuspensa from "../ListaSuspensa";
 import categorias from "@/mocks/categorias.json";
 import Button from "../Button";
+import { usePlaylistContext } from "@/hooks/usePlaylistContext";
+import { useEffect, useState } from "react";
 
 const Overlay = styled.div`
 	background-color: rgba(3, 18, 47, 0.76);
@@ -85,7 +87,34 @@ const BotaoFechar = styled.button`
 `;
 
 export default function ModalEditar({ card, aoFechar }) {
-	console.log(card);
+	const [titulo, setTitulo] = useState("");
+	const [imagem, setImagem] = useState("");
+	const [video, setVideo] = useState("");
+	const [descricao, setDescricao] = useState("");
+	const [categoriaId, setCategoriaId] = useState("");
+
+	const { atualizarVideo } = usePlaylistContext();
+
+	useEffect(() => {
+		if (card) {
+			setTitulo(card.titulo);
+			setImagem(card.imagem);
+			setVideo(card.video);
+			setDescricao(card.descricao);
+			setCategoriaId(card.categoriaId);
+		}
+	}, [card]);
+
+	function salvar() {
+		atualizarVideo(card.id, {
+			titulo,
+			imagem,
+			video,
+			descricao,
+			categoriaId: parseInt(categoriaId),
+		});
+		aoFechar();
+	}
 	return (
 		!!card && (
 			<>
@@ -96,25 +125,34 @@ export default function ModalEditar({ card, aoFechar }) {
 						<CampoTexto
 							label="Titulo"
 							placeholder="oque é javascript"
-							value={card.titulo}
+							value={titulo}
+							onChange={(e) => setTitulo(e.target.value)}
 						/>
 						<ListaSuspensa
 							label="Categoria"
 							itens={categorias}
-							value={card.categoriaId}
+							value={categoriaId}
+							onChange={(e) => setCategoriaId(e.target.value)}
 						/>
 						<CampoTexto
 							label="Imagem"
 							placeholder="https://www.google.com/url?sa=i&url=https%3A%2F%2Fapps..."
-							value={card.imagem}
+							value={imagem}
+							onChange={(e) => setImagem(e.target.value)}
 						/>
 						<CampoTexto
 							label="Video"
 							placeholder="https://www.youtube.com/url?sa=i&url=https%3A%2F%2Fap.."
-							value={card.video}
+							value={video}
+							onChange={(e) => setVideo(e.target.value)}
 						/>
 						<BotoesEstilizados>
-							<Button type="button">GUARDAR</Button>
+							<Button
+								type="button"
+								onClick={salvar}
+							>
+								GUARDAR
+							</Button>
 							<Button type="reset">LIMPAR</Button>
 						</BotoesEstilizados>
 						<BotaoFechar onClick={aoFechar}>

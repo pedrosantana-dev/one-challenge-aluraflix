@@ -32,7 +32,7 @@ export const usePlaylistContext = () => {
 		dispatch(removeVideoAction(videoId));
 	}
 
-	function uptadeVideo(id, video) {
+	function atualizarVideo(id, video) {
 		dispatch(uptadeVideoAction(id, video));
 	}
 
@@ -40,6 +40,6 @@ export const usePlaylistContext = () => {
 		playlist,
 		adicionarVideo,
 		removerVideo,
-		uptadeVideo,
+		atualizarVideo,
 	};
 };
