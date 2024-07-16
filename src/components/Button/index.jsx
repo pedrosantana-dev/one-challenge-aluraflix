@@ -20,8 +20,8 @@ const ButtonEstilizado = styled.button`
 	}
 `;
 
-export default function Button({ children }) {
-	return <ButtonEstilizado>{children}</ButtonEstilizado>;
+export default function Button({ children, ...props }) {
+	return <ButtonEstilizado {...props}>{children}</ButtonEstilizado>;
 }
 
 Button.propTypes = {
