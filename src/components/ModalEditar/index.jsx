@@ -47,11 +47,27 @@ const FormEstilizado = styled.form`
 		text-align: center;
 		color: #2271d1;
 	}
+
+	@media (max-width: 1024px) {
+		gap: 40px;
+		padding: 84px 50px;
+	}
+
+	@media (max-width: 768px) {
+		gap: 20px;
+		padding: 60px 12px;
+	}
 `;
 
 const BotoesEstilizados = styled.div`
 	display: flex;
 	justify-content: space-between;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
 `;
 
 const BotaoFechar = styled.button`
@@ -61,6 +77,11 @@ const BotaoFechar = styled.button`
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
+
+	@media (max-width: 768px) {
+		top: 16px;
+		right: 16px;
+	}
 `;
 
 export default function ModalEditar({ card, aoFechar }) {

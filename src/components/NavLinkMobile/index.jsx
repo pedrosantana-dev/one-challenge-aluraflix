@@ -7,8 +7,9 @@ import NovoVideo from "@/assets/icons/NuevoVideo.svg?react";
 const NavLinkEstilizado = styled.nav`
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	width: 100%;
-	gap: 25px;
+	gap: 62px;
 `;
 
 const ButtonLinkEstilizado = styled(Link)`
