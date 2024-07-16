@@ -3,6 +3,8 @@ import ListaSuspensa from "@/components/ListaSuspensa";
 import styled from "styled-components";
 import categorias from "@/mocks/categorias.json";
 import Button from "@/components/Button";
+import { usePlaylistContext } from "@/hooks/usePlaylistContext";
+import { useState } from "react";
 
 const ContainerEstilizado = styled.div`
 	display: flex;
@@ -72,6 +74,34 @@ const ButtonBoxEstilizado = styled.div`
 `;
 
 export default function NovoVideo() {
+	const [titulo, setTitulo] = useState("");
+	const [imagem, setImagem] = useState("");
+	const [video, setVideo] = useState("");
+	const [descricao, setDescricao] = useState("");
+	const [categoriaId, setCategoriaId] = useState("");
+
+	const { adicionarVideo } = usePlaylistContext();
+
+	function resetarCampos() {
+		setTitulo("");
+		setImagem("");
+		setVideo("");
+		setDescricao("");
+		setCategoriaId("");
+	}
+
+	function guardarVideo() {
+		adicionarVideo({
+			titulo,
+			imagem,
+			video,
+			descricao,
+			categoriaId: parseInt(categoriaId),
+		});
+
+		resetarCampos();
+	}
+
 	return (
 		<ContainerEstilizado>
 			<h2>Novo Vídeo</h2>
@@ -83,28 +113,50 @@ export default function NovoVideo() {
 					<CampoTexto
 						label="Título"
 						placeholder="título do vídeo"
+						value={titulo}
+						onChange={(e) => setTitulo(e.target.value)}
 					/>
 					<ListaSuspensa
 						label="Categoria"
 						itens={categorias}
 						placeholder="selecione uma categoria"
+						value={categoriaId}
+						onChange={(e) => setCategoriaId(e.target.value)}
 					/>
 					<CampoTexto
 						label="Imagem"
 						placeholder="link da imagem"
+						value={imagem}
+						onChange={(e) => setImagem(e.target.value)}
 					/>
 					<CampoTexto
 						label="Vídeo"
 						placeholder="link do vídeo"
+						value={video}
+						onChange={(e) => setVideo(e.target.value)}
 					/>
 					<div>
 						<LabelEstilizado>Descrição</LabelEstilizado>
-						<TextareaEstilizado placeholder="Sobre o que é esse vídeo?"></TextareaEstilizado>
+						<TextareaEstilizado
+							placeholder="Sobre o que é esse vídeo?"
+							value={descricao}
+							onChange={(e) => setDescricao(e.target.value)}
+						></TextareaEstilizado>
 					</div>
 				</GridEstilizado>
 				<ButtonBoxEstilizado>
-					<Button type="submit">GUARDAR</Button>
-					<Button type="reset">LIMPAR</Button>
+					<Button
+						type="button"
+						onClick={guardarVideo}
+					>
+						GUARDAR
+					</Button>
+					<Button
+						type="button"
+						onClick={resetarCampos}
+					>
+						LIMPAR
+					</Button>
 				</ButtonBoxEstilizado>
 			</form>
 		</ContainerEstilizado>

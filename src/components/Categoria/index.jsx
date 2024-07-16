@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import propTypes from "prop-types";
-import videos from "@/mocks/videos.json";
-
+import { usePlaylistContext } from "@/hooks/usePlaylistContext";
 import Card from "./Card";
 
 const TituloEstilizado = styled.h3`
@@ -64,27 +63,31 @@ const ContainerEstilizado = styled.ul`
 	}
 `;
 
-export default function Categoria({ nome, cor, id, aoEditarCard }) {
-	const videosDaCategoria = videos.filter((item) => item.categoriaId === id);
+export default function Categoria({ nome, cor, id, aoEditarCard, videos }) {
+	const { removerVideo } = usePlaylistContext();
+
 	return (
-		<div>
-			<TituloEstilizado
-				$cor={cor}
-				id={id}
-			>
-				<span>{nome}</span>
-			</TituloEstilizado>
-			<ContainerEstilizado>
-				{videosDaCategoria.map((item) => (
-					<Card
-						item={item}
-						cor={cor}
-						key={item.id}
-						aoEditarCard={aoEditarCard}
-					/>
-				))}
-			</ContainerEstilizado>
-		</div>
+		videos.length > 0 && (
+			<div>
+				<TituloEstilizado
+					$cor={cor}
+					id={id}
+				>
+					<span>{nome}</span>
+				</TituloEstilizado>
+				<ContainerEstilizado>
+					{videos.map((item) => (
+						<Card
+							item={item}
+							cor={cor}
+							key={item.id}
+							aoEditarCard={aoEditarCard}
+							removerVideo={removerVideo}
+						/>
+					))}
+				</ContainerEstilizado>
+			</div>
+		)
 	);
 }
 
@@ -93,4 +96,5 @@ Categoria.propTypes = {
 	cor: propTypes.string.isRequired,
 	id: propTypes.number.isRequired,
 	aoEditarCard: propTypes.func.isRequired,
+	videos: propTypes.array.isRequired,
 };

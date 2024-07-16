@@ -37,11 +37,7 @@ const ButtonEstilizado = styled.button`
 	cursor: pointer;
 `;
 
-export default function Card({ cor, item, aoEditarCard }) {
-	const deletar = () => {
-		console.log(item.id);
-	};
-
+export default function Card({ cor, item, aoEditarCard, removerVideo }) {
 	return (
 		<CardEstilizado $cor={cor}>
 			<img
@@ -49,7 +45,7 @@ export default function Card({ cor, item, aoEditarCard }) {
 				alt=""
 			/>
 			<FooterEstilizado>
-				<ButtonEstilizado onClick={deletar}>
+				<ButtonEstilizado onClick={() => removerVideo(item.id)}>
 					<img src={iconDelete} />
 					DELETAR
 				</ButtonEstilizado>
@@ -66,4 +62,5 @@ Card.propTypes = {
 	cor: propTypes.string.isRequired,
 	item: propTypes.object.isRequired,
 	aoEditarCard: propTypes.func.isRequired,
+	removerVideo: propTypes.func.isRequired,
 };

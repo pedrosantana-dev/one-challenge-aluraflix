@@ -3,6 +3,7 @@ import Categoria from "../components/Categoria";
 import categorias from "@/mocks/categorias.json";
 import ModalEditar from "@/components/ModalEditar";
 import { useState } from "react";
+import { usePlaylistContext } from "@/hooks/usePlaylistContext";
 
 const ContainerCategoriasEstilizado = styled.div`
 	display: flex;
@@ -16,6 +17,7 @@ const ContainerCategoriasEstilizado = styled.div`
 
 export default function Home() {
 	const [cardEmEdicao, setCardEmEdicao] = useState(null);
+	const { playlist } = usePlaylistContext();
 
 	const aoFechar = () => {
 		setCardEmEdicao(null);
@@ -31,6 +33,7 @@ export default function Home() {
 						cor={item.cor}
 						key={item.id}
 						aoEditarCard={(card) => setCardEmEdicao(card)}
+						videos={playlist.filter((video) => video.categoriaId === item.id)}
 					/>
 				))}
 			</ContainerCategoriasEstilizado>
