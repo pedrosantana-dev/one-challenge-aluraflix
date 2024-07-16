@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button from "../Button";
+import ButtonLink from "../ButtonLink";
 import { useEffect, useState } from "react";
 
 const HeaderEstilizado = styled.header`
@@ -34,7 +34,7 @@ const HeaderContainer = styled.div`
 		width: 168px;
 	}
 
-	div {
+	nav {
 		display: flex;
 		gap: 25px;
 	}
@@ -65,10 +65,10 @@ export default function Header() {
 					alt="Logo"
 				/>
 
-				<div>
-					<Button>HOME</Button>
-					<Button>NOVO VIDEO</Button>
-				</div>
+				<nav>
+					<ButtonLink to="/">HOME</ButtonLink>
+					<ButtonLink to="/novo-video">NOVO VIDEO</ButtonLink>
+				</nav>
 			</HeaderContainer>
 		</HeaderEstilizado>
 	);

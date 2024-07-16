@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import propTypes from "prop-types";
 import CampoTexto from "../CampoTexto";
+import xCancel from "@/assets/icons/cancel.png";
 
 const Overlay = styled.div`
 	background-color: rgba(3, 18, 47, 0.76);
@@ -27,6 +28,7 @@ const DialogoEstilizado = styled.dialog`
 `;
 
 const FormEstilizado = styled.form`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: 43px;
@@ -68,7 +70,17 @@ const BotoesEstilizados = styled.div`
 	}
 `;
 
-export default function ModalEditar({ card }) {
+const BotaoFechar = styled.button`
+	position: absolute;
+	top: 35px;
+	right: 35px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+`;
+
+export default function ModalEditar({ card, aoFechar }) {
+	console.log(card);
 	return (
 		!!card && (
 			<>
@@ -79,23 +91,30 @@ export default function ModalEditar({ card }) {
 						<CampoTexto
 							label="Titulo"
 							placeholder="oque é javascript"
+							value={card.titulo}
 						/>
 						<CampoTexto
 							label="Categoria"
 							placeholder="front-end"
+							value={card.categoria}
 						/>
 						<CampoTexto
 							label="Imagem"
 							placeholder="https://www.google.com/url?sa=i&url=https%3A%2F%2Fapps..."
+							value={card.imagem}
 						/>
 						<CampoTexto
 							label="Video"
 							placeholder="https://www.youtube.com/url?sa=i&url=https%3A%2F%2Fap.."
+							value={card.video}
 						/>
 						<BotoesEstilizados>
 							<button type="button">GUARDAR</button>
 							<button type="reset">LIMPAR</button>
 						</BotoesEstilizados>
+						<BotaoFechar onClick={aoFechar}>
+							<img src={xCancel} />
+						</BotaoFechar>
 					</FormEstilizado>
 				</DialogoEstilizado>
 			</>
@@ -105,4 +124,5 @@ export default function ModalEditar({ card }) {
 
 ModalEditar.propTypes = {
 	card: propTypes.object,
+	aoFechar: propTypes.func,
 };

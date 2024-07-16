@@ -54,7 +54,7 @@ const ContainerEstilizado = styled.ul`
 	}
 `;
 
-export default function Categoria({ nome, cor, id }) {
+export default function Categoria({ nome, cor, id, aoEditarCard }) {
 	const videosDaCategoria = videos.filter((item) => item.categoriaId === id);
 	return (
 		<div>
@@ -65,6 +65,7 @@ export default function Categoria({ nome, cor, id }) {
 						item={item}
 						cor={cor}
 						key={item.id}
+						aoEditarCard={aoEditarCard}
 					/>
 				))}
 			</ContainerEstilizado>
@@ -76,4 +77,5 @@ Categoria.propTypes = {
 	nome: propTypes.string.isRequired,
 	cor: propTypes.string.isRequired,
 	id: propTypes.number.isRequired,
+	aoEditarCard: propTypes.func.isRequired,
 };

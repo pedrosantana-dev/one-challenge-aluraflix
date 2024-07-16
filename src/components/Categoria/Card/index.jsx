@@ -37,11 +37,8 @@ const ButtonEstilizado = styled.button`
 	cursor: pointer;
 `;
 
-export default function Card({ cor, item }) {
+export default function Card({ cor, item, aoEditarCard }) {
 	const deletar = () => {
-		console.log(item.id);
-	};
-	const editar = () => {
 		console.log(item.id);
 	};
 
@@ -56,7 +53,7 @@ export default function Card({ cor, item }) {
 					<img src={iconDelete} />
 					DELETAR
 				</ButtonEstilizado>
-				<ButtonEstilizado onClick={editar}>
+				<ButtonEstilizado onClick={() => aoEditarCard(item)}>
 					<img src={iconEdit} />
 					EDITAR
 				</ButtonEstilizado>
@@ -68,4 +65,5 @@ export default function Card({ cor, item }) {
 Card.propTypes = {
 	cor: propTypes.string.isRequired,
 	item: propTypes.object.isRequired,
+	aoEditarCard: propTypes.func.isRequired,
 };

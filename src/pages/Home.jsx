@@ -17,6 +17,7 @@ const ContainerCategoriasEstilizado = styled.div`
 
 export default function Home() {
 	const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
+	const [cardEmEdicao, setCardEmEdicao] = useState(null);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -28,6 +29,10 @@ export default function Home() {
 		};
 	}, []);
 
+	const aoFechar = () => {
+		setCardEmEdicao(null);
+	};
+
 	return (
 		<>
 			{isLargeScreen && <Banner />}
@@ -38,11 +43,15 @@ export default function Home() {
 						nome={item.nome}
 						cor={item.cor}
 						key={item.id}
+						aoEditarCard={(card) => setCardEmEdicao(card)}
 					/>
 				))}
 			</ContainerCategoriasEstilizado>
 
-			<ModalEditar />
+			<ModalEditar
+				card={cardEmEdicao}
+				aoFechar={() => aoFechar()}
+			/>
 		</>
 	);
 }

@@ -4,6 +4,7 @@ const BannerEstilizado = styled.div`
 	position: relative;
 	padding: 343px 40px 155px 40px;
 	background-image: url("./img/player.png");
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
@@ -28,6 +29,9 @@ const ConteudoEstilizado = styled.div`
 	gap: 50px;
 
 	& > div {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 		flex: 1;
 		a {
 			font-size: 48px;
@@ -43,6 +47,7 @@ const ConteudoEstilizado = styled.div`
 			font-size: 46px;
 			font-weight: 400;
 			color: #f5f5f5;
+			margin: 40px 0 0;
 		}
 
 		p {
@@ -71,7 +76,7 @@ export default function Banner() {
 						dicas sobre performance e de quebra conhecer uma plataforma
 						sensacional pra fazer deploy que é a Vercel. Tudo em 22 minutos
 						nesse vídeo feito com todo o carinho do mundo construindo uma
-						"Pokedex"!
+						&quot;Pokedex&quot;!
 					</p>
 				</div>
 
