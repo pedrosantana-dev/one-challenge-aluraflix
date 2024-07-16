@@ -2,6 +2,9 @@ import styled from "styled-components";
 import propTypes from "prop-types";
 import CampoTexto from "../CampoTexto";
 import xCancel from "@/assets/icons/cancel.png";
+import ListaSuspensa from "../ListaSuspensa";
+import categorias from "@/mocks/categorias.json";
+import Button from "../Button";
 
 const Overlay = styled.div`
 	background-color: rgba(3, 18, 47, 0.76);
@@ -49,25 +52,6 @@ const FormEstilizado = styled.form`
 const BotoesEstilizados = styled.div`
 	display: flex;
 	justify-content: space-between;
-
-	button {
-		color: #fff;
-		background-color: transparent;
-		border: 2px solid #fff;
-		border-radius: 15px;
-		width: 180px;
-		height: 54px;
-		font-size: 20px;
-		font-weight: 500;
-		transition: all 0.3s;
-	}
-
-	button:hover {
-		color: var(--color-blue);
-		background-color: #000;
-		border-color: var(--color-blue);
-		box-shadow: inset 0 0 10px 3px var(--color-blue);
-	}
 `;
 
 const BotaoFechar = styled.button`
@@ -93,10 +77,10 @@ export default function ModalEditar({ card, aoFechar }) {
 							placeholder="oque é javascript"
 							value={card.titulo}
 						/>
-						<CampoTexto
+						<ListaSuspensa
 							label="Categoria"
-							placeholder="front-end"
-							value={card.categoria}
+							itens={categorias}
+							value={card.categoriaId}
 						/>
 						<CampoTexto
 							label="Imagem"
@@ -109,8 +93,8 @@ export default function ModalEditar({ card, aoFechar }) {
 							value={card.video}
 						/>
 						<BotoesEstilizados>
-							<button type="button">GUARDAR</button>
-							<button type="reset">LIMPAR</button>
+							<Button type="button">GUARDAR</Button>
+							<Button type="reset">LIMPAR</Button>
 						</BotoesEstilizados>
 						<BotaoFechar onClick={aoFechar}>
 							<img src={xCancel} />

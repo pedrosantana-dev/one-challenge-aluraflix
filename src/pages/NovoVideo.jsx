@@ -1,5 +1,8 @@
 import CampoTexto from "@/components/CampoTexto";
+import ListaSuspensa from "@/components/ListaSuspensa";
 import styled from "styled-components";
+import categorias from "@/mocks/categorias.json";
+import Button from "@/components/Button";
 
 const ContainerEstilizado = styled.div`
 	display: flex;
@@ -57,6 +60,17 @@ const LabelEstilizado = styled.label`
 	color: #fff;
 `;
 
+const ButtonBoxEstilizado = styled.div`
+	display: flex;
+	justify-content: start;
+	gap: 20px;
+
+	button {
+		border-color: var(--color-blue);
+		color: var(--color-blue);
+	}
+`;
+
 export default function NovoVideo() {
 	return (
 		<ContainerEstilizado>
@@ -70,7 +84,11 @@ export default function NovoVideo() {
 						label="Título"
 						placeholder="título do vídeo"
 					/>
-					<CampoTexto label="Categoria" />
+					<ListaSuspensa
+						label="Categoria"
+						itens={categorias}
+						placeholder="selecione uma categoria"
+					/>
 					<CampoTexto
 						label="Imagem"
 						placeholder="link da imagem"
@@ -84,10 +102,10 @@ export default function NovoVideo() {
 						<TextareaEstilizado placeholder="Sobre o que é esse vídeo?"></TextareaEstilizado>
 					</div>
 				</GridEstilizado>
-				<div>
-					<button type="submit">GUARDAR</button>
-					<button type="reset">LIMPAR</button>
-				</div>
+				<ButtonBoxEstilizado>
+					<Button type="submit">GUARDAR</Button>
+					<Button type="reset">LIMPAR</Button>
+				</ButtonBoxEstilizado>
 			</form>
 		</ContainerEstilizado>
 	);

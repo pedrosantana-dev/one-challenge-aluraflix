@@ -5,17 +5,27 @@ import videos from "@/mocks/videos.json";
 import Card from "./Card";
 
 const TituloEstilizado = styled.h3`
-	position: relative;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 432px;
-	height: 70px;
-	background-color: ${(props) => props.$cor};
-	border-radius: 15px;
-	font-size: 32px;
-	font-weight: 700;
-	text-transform: uppercase;
+	justify-content: start;
+	span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 420px;
+		height: 70px;
+		background-color: ${(props) => props.$cor};
+		border-radius: 15px;
+		font-size: 32px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	@media (min-width: 768px) {
+		justify-content: center;
+	}
+	@media (min-width: 1024px) {
+		justify-content: start;
+	}
 `;
 
 const ContainerEstilizado = styled.ul`
@@ -58,7 +68,9 @@ export default function Categoria({ nome, cor, id, aoEditarCard }) {
 	const videosDaCategoria = videos.filter((item) => item.categoriaId === id);
 	return (
 		<div>
-			<TituloEstilizado $cor={cor}>{nome}</TituloEstilizado>
+			<TituloEstilizado $cor={cor}>
+				<span>{nome}</span>
+			</TituloEstilizado>
 			<ContainerEstilizado>
 				{videosDaCategoria.map((item) => (
 					<Card

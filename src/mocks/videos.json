@@ -1,6 +1,7 @@
 [
 	{
 		"id": 1,
+		"titulo": "SEO com React",
 		"src": "img/cards/1.png",
 		"categoriaId": 1
 	},
