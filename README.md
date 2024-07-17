@@ -1,8 +1,14 @@
-# React + Vite
+# AluraFlix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Desenvolvido com React, styled components e arquivos estáticos.
 
-Currently, two official plugins are available:
+Projeto desafio Challenge AluraFlix, desenvolvido durante a Formação Front-End Alura Latam | ONE - Oracle Next Education
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Como executar o projeto
+
+Após clonar o projeto, entrar no diretório e executar os comandos:
+
+- Primeiro: `npm install`
+- Depois: `npm run dev`
+
+Após iniciar o projeto a URL local será exibida no console.
